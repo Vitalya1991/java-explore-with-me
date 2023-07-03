@@ -21,12 +21,12 @@ public class EndpointHit {
     @Column(length = 50, nullable = false)
     private String app;
 
-    @Column(length = 250, nullable = false)
+    @Column(length = 2048, nullable = false)
     private String uri;
 
     @Column(length = 50, nullable = false)
     private String ip;
 
-    @Column(nullable = false)
+    @Column(name = "created", nullable = false)
     private LocalDateTime timestamp;
 }
