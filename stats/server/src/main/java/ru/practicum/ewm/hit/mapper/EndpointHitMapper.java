@@ -1,11 +1,12 @@
 package ru.practicum.ewm.hit.mapper;
 
-import lombok.experimental.UtilityClass;
 import ru.practicum.ewm.hit.model.EndpointHit;
 import ru.practicum.ewm.request.AddEndpointHitRequestDto;
 import ru.practicum.ewm.response.EndpointHitResponseDto;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 
-@UtilityClass
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class EndpointHitMapper {
 
     public static EndpointHit toEndpointHit(AddEndpointHitRequestDto endpointHitDto) {
