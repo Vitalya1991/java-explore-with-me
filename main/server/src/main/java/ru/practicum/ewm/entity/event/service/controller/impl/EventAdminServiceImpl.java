@@ -13,7 +13,7 @@ import ru.practicum.ewm.entity.event.dto.response.EventFullResponseDto;
 import ru.practicum.ewm.entity.event.entity.Event;
 import ru.practicum.ewm.entity.event.mapper.EventMapper;
 import ru.practicum.ewm.entity.event.repository.EventJpaRepository;
-import ru.practicum.ewm.entity.event.service.contoller.EventAdminService;
+import ru.practicum.ewm.entity.event.service.controller.EventAdminService;
 import ru.practicum.ewm.entity.event.service.statistics.EventStatisticsService;
 import ru.practicum.ewm.entity.event.validation.validator.EventValidator;
 import ru.practicum.ewm.entity.participation.entity.Participation;
