@@ -3,7 +3,7 @@ package ru.practicum.ewm.config;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import ru.practicum.ewm.hit.client.EndpointHitClient;
+import ru.practicum.ewm.client.EndpointHitClient;
 
 @Configuration
 public class EndpointHitClientConfig {
