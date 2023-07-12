@@ -62,11 +62,6 @@
             <version>${explore-with-me-stats-client.version}</version>
             <scope>compile</scope>
         </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-webmvc</artifactId>
-            <version>5.3.27</version>
-        </dependency>
     </dependencies>
 
     <build>

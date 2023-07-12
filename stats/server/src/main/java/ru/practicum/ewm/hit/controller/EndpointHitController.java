@@ -4,10 +4,10 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import ru.practicum.ewm.hit.service.EndpointHitService;
 import ru.practicum.ewm.request.AddEndpointHitRequestDto;
 import ru.practicum.ewm.response.EndpointHitResponseDto;
 import ru.practicum.ewm.response.stats.ViewStatsResponseDto;
+import ru.practicum.ewm.hit.service.EndpointHitService;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -42,4 +42,5 @@ public class EndpointHitController {
                 unique);
         return endpointHitService.getStats(start, end, uris, unique);
     }
+
 }
