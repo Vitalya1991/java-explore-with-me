@@ -11,8 +11,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Null;
 import java.time.LocalDateTime;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
