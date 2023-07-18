@@ -2,35 +2,27 @@ package ru.practicum.compilation.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-
 import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
-
 import ru.practicum.StatsServiceClient;
-
 import ru.practicum.compilation.dto.CompilationDto;
 import ru.practicum.compilation.dto.CompilationMapper;
 import ru.practicum.compilation.dto.NewCompilationDto;
 import ru.practicum.compilation.dto.UpdateCompilationRequest;
 import ru.practicum.compilation.model.Compilation;
 import ru.practicum.compilation.repository.CompilationRepository;
-
 import ru.practicum.dto.ViewStatsDto;
-
 import ru.practicum.event.dto.EventMapper;
 import ru.practicum.event.dto.EventShortDto;
 import ru.practicum.event.model.Event;
 import ru.practicum.event.repository.EventRepository;
-
 import ru.practicum.exception.NotFoundException;
-
 import ru.practicum.request.model.CountEventRequests;
 import ru.practicum.request.model.ParticipationRequestState;
 import ru.practicum.request.repository.ParticipationRequestRepository;
-
 import ru.practicum.utils.Constant;
 import ru.practicum.utils.PageConfig;
 
@@ -97,10 +89,10 @@ public class CompilationServiceImpl implements CompilationService {
         Map<Long, Long> views = getViews(compilationEvents);
         List<CompilationDto> result = new ArrayList<>();
         searchedCompilations
-        .forEach(compilation -> result.add(CompilationMapper.toDto(compilation,
-                                                                   setRequestsAndViewsShortDto(compilation.getEvents(),
-                                                                                                requests,
-                                                                                                views))));
+                .forEach(compilation -> result.add(CompilationMapper.toDto(compilation,
+                        setRequestsAndViewsShortDto(compilation.getEvents(),
+                                requests,
+                                views))));
         return result;
     }
 
@@ -111,7 +103,7 @@ public class CompilationServiceImpl implements CompilationService {
         Map<Long, Long> requests = getConfirmedRequests(compilation.getEvents());
         Map<Long, Long> views = getViews(compilation.getEvents());
         return CompilationMapper.toDto(compilation,
-                                        setRequestsAndViewsShortDto(compilation.getEvents(), requests, views));
+                setRequestsAndViewsShortDto(compilation.getEvents(), requests, views));
     }
 
     private Compilation getExistedCompilation(Long compId) throws NotFoundException {
@@ -140,31 +132,26 @@ public class CompilationServiceImpl implements CompilationService {
                 .collect(Collectors.toList())
                 .toArray(new String[0]);
         ResponseEntity<List<ViewStatsDto>> views = statsClient.getViewStats(Constant.unreachableStart,
-                                                                            Constant.unreachableEnd,
-                                                                            searchedEventsUris,
-                                                                     false);
+                Constant.unreachableEnd,
+                searchedEventsUris,
+                false);
         Map<Long, Long> eventIdViews = new HashMap<>();
         views.getBody().forEach(viewStatsDto -> eventIdViews.put(uriToEventId(viewStatsDto.getUri()),
-                                                                 viewStatsDto.getHits()));
+                viewStatsDto.getHits()));
         return eventIdViews;
     }
 
     private List<EventShortDto> setRequestsAndViewsShortDto(List<Event> searchedEvents, Map<Long, Long> requests,
-                                                                                        Map<Long, Long> views) {
-        List<EventShortDto> resultList = new ArrayList<>();
-        searchedEvents.stream()
-                .forEach(event -> {
-                    int requestsToSave = 0;
-                    int viewsToSave = 0;
-                    if (requests.containsKey(event.getId())) {
-                        requestsToSave = requests.get(event.getId()).intValue();
-                    }
-                    if (views.containsKey(event.getId())) {
-                        viewsToSave = views.get(event.getId()).intValue();
-                    }
-                    resultList.add(EventMapper.toShortDto(event, requestsToSave, viewsToSave));
-                });
-        return resultList;
+                                                            Map<Long, Long> views) {
+        return searchedEvents.stream()
+                .map(event -> {
+                    int requestsToSave = requests.containsKey(event.getId()) ?
+                            requests.get(event.getId()).intValue() : 0;
+                    int viewsToSave = views.containsKey(event.getId()) ?
+                            views.get(event.getId()).intValue() : 0;
+                    return EventMapper.toShortDto(event, requestsToSave, viewsToSave);
+                })
+                .collect(Collectors.toList());
     }
 
     private Long uriToEventId(String uri) {
