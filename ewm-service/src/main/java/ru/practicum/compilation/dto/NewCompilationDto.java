@@ -8,11 +8,9 @@ import javax.validation.constraints.NotBlank;
 import java.util.ArrayList;
 import java.util.List;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 public class NewCompilationDto {
     private List<Long> events = new ArrayList<>();
     @NotBlank

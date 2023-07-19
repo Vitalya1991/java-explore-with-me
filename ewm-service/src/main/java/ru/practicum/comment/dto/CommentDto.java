@@ -14,7 +14,6 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 public class CommentDto {
     @Null(groups = {ValidateMarker.OnCreate.class, ValidateMarker.OnUpdate.class})
     private Long id;

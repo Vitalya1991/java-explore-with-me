@@ -6,11 +6,9 @@ import org.hibernate.validator.constraints.Length;
 import java.util.ArrayList;
 import java.util.List;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 public class UpdateCompilationRequest {
     @Length(min = 1, max = 50)
     private String title;

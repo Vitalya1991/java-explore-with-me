@@ -2,11 +2,9 @@ package ru.practicum.user.dto;
 
 import lombok.*;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 public class UserDto {
     private Long id;
     private String email;

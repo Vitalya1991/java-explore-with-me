@@ -5,11 +5,9 @@ import ru.practicum.request.model.ParticipationRequestState;
 
 import java.util.List;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 public class EventRequestStatusUpdateRequest {
     private List<Long> requestIds;
     private ParticipationRequestState status;

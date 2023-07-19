@@ -2,11 +2,9 @@ package ru.practicum.request.model;
 
 import lombok.*;
 
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
 public class CountEventRequests {
     private Long requests;
     private Long eventId;

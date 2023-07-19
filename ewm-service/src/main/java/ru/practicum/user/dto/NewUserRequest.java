@@ -1,19 +1,14 @@
 package ru.practicum.user.dto;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import org.hibernate.validator.constraints.Length;
 import ru.practicum.validation.EmailPartsMaxLength;
 
 import javax.validation.constraints.NotBlank;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
-@ToString
 public class NewUserRequest {
     @NotBlank
     @EmailPartsMaxLength

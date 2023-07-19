@@ -15,11 +15,9 @@ import ru.practicum.utils.Constant;
 import java.time.LocalDateTime;
 import java.util.List;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 public class EventFullDto {
     private Long id;
     private String title;

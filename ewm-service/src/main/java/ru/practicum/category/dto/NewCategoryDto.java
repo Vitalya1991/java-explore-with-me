@@ -8,7 +8,6 @@ import javax.validation.constraints.NotBlank;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 public class NewCategoryDto {
     @NotBlank
     @Length(min = 1, max = 50)
