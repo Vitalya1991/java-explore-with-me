@@ -10,11 +10,9 @@ import ru.practicum.utils.Constant;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 @Entity
 @Table(name = "comments")
 public class Comment {
