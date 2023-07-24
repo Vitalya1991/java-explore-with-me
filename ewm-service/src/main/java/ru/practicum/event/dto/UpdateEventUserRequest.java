@@ -9,11 +9,9 @@ import ru.practicum.validation.DateLaterNow;
 
 import java.time.LocalDateTime;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 public class UpdateEventUserRequest {
     @Length(min = 20, max = 2000)
     private String annotation;

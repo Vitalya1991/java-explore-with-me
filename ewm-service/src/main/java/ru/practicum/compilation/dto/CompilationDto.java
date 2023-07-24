@@ -5,11 +5,9 @@ import ru.practicum.event.dto.EventShortDto;
 
 import java.util.List;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 public class CompilationDto {
     private Long id;
     private String title;

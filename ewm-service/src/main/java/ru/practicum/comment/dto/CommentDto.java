@@ -11,11 +11,9 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Null;
 import java.time.LocalDateTime;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 public class CommentDto {
     @Null(groups = {ValidateMarker.OnCreate.class, ValidateMarker.OnUpdate.class})
     private Long id;

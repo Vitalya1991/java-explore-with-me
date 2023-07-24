@@ -7,11 +7,9 @@ import ru.practicum.utils.Constant;
 
 import java.time.LocalDateTime;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 public class ParticipationRequestDto {
     private Long id;
     @JsonFormat(pattern = Constant.dateTimeFormat)

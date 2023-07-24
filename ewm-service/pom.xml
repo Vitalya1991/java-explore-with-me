@@ -9,7 +9,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <groupId>ru.practicum.explorewithme</groupId>
+    <groupId>ru.practicum</groupId>
     <artifactId>ewm-service</artifactId>
 
     <properties>
@@ -58,7 +58,7 @@
         </dependency>
         <dependency>
             <groupId>ru.practicum.explorewithme</groupId>
-            <artifactId>stats-client</artifactId>
+            <artifactId>client</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
@@ -70,6 +70,10 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator</artifactId>
         </dependency>
     </dependencies>
 
